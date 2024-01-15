@@ -1,29 +1,49 @@
 import React from "react";
-import SpotifyLogin from "../components/SpotifyLogin";
-import { useNavigate } from "react-router-dom";
+import { Lock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
-  const navigate = useNavigate();
-
   return (
-    <div className=" h-full flex flex-col w-full justify-center align-middle bg-slate-900 text-white">
-      <h3>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. At ad doloribus
-        dolores id a placeat eaque cupiditate quis unde praesentium,
-        voluptatibus rem sequi in distinctio ut, odit, minus deleniti odio
-        repudiandae nobis deserunt cum optio incidunt. Perspiciatis, iste, at
-        tenetur corrupti similique, iure harum qui repudiandae molestias ab
-        neque dolorem?
-      </h3>
-      <button
-        onClick={() => {
-          navigate("/oauth");
-        }}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-2/4 rounded  "
-      >
-        Try Now!
-      </button>
-      {/* <SpotifyLogin /> */}
-    </div>
+    <section className="py-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8  ">
+        <div className="mx-auto w-full text-center md:max-w-2xl">
+          <h2 className="text-3xl w-full font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
+            Sync Playlists, Across Platforms
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-gray-600">
+            Struggling to share playlists with friends on different music
+            services? Our web app solves this. Seamlessly transfer and sync your
+            playlists across platforms like YouTube Music and Spotify. Perfect
+            for those who enjoy diverse music experiences, it bridges the gap,
+            ensuring you and your friends stay connected musically, regardless
+            of the service you prefer. Simple, efficient, and ready to harmonize
+            your music world.
+          </p>
+        </div>
+
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+          className="mx-auto mt-12 max-w-xl"
+        >
+          <div className="flex justify-center">
+            <Link to="/dashboard">
+              <button className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+                Try Now!
+              </button>
+            </Link>
+          </div>
+        </form>
+
+        <div className="mt-8 flex items-center justify-center px-8 sm:px-0">
+          <Lock className="h-4 w-4 text-gray-600" />
+          <span className="ml-2 text-sm text-gray-600">
+            Your data is complely secured with us. We don&apos;t share with
+            anyone.
+          </span>
+        </div>
+      </div>
+    </section>
   );
 }
