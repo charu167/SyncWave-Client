@@ -9,7 +9,7 @@ export default function CreateSpotifyPlaylist({
 
   async function handleClick() {
     await axios
-      .post("http://localhost:3000/playlists/spotify/create", {
+      .post("/api/playlists/spotify/create", {
         access_token: localStorage.getItem("spotifyAccessToken"),
         name: name,
         spotifyID: localStorage.getItem("spotifyID"),

@@ -13,8 +13,6 @@ import OAuthSpotify from "./pages/oauth/OAuthSpotify";
 import OAuthGoogle from "./pages/oauth/OAuthGoogle";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <BrowserRouter>

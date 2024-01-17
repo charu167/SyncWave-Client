@@ -40,11 +40,15 @@ export default function Dashboard() {
                 "Bearer " + localStorage.getItem("spotifyAccessToken"),
             },
           })
-          .then((res) => {})
+          .then((res) => {
+            if (res.data) {
+              console.log("spotify access token is valid");
+            }
+          })
           .catch(async (error) => {
             //Refresh spotify access token
             await axios
-              .post("http://localhost:3000/auth/refreshSpotify", {
+              .post("/api/auth/refreshSpotify", {
                 spotifyID: localStorage.getItem("spotifyID"),
               })
               .then((res) => {
@@ -69,11 +73,15 @@ export default function Dashboard() {
                 "Bearer " + localStorage.getItem("googleAccessToken"),
             },
           })
-          .then((res) => {})
+          .then((res) => {
+            if (res.data) {
+              console.log("Google access token is valid");
+            }
+          })
           .catch(async (error) => {
             //refresh spotify access token
             await axios
-              .post("http://localhost:3000/auth/refreshYoutube", {
+              .post("/api/auth/refreshYoutube", {
                 spotifyID: localStorage.getItem("spotifyID"),
               })
               .then((res) => {
@@ -101,6 +109,8 @@ export default function Dashboard() {
   const [currPlaylistItems, setCurrPlaylistItems] = useState([]);
   const [trackIDs, setTrackIDs] = useState([]);
   const [createdPlaylitID, setCreatedPlaylitID] = useState(null);
+
+  console.log("currPlaylistItems: ", currPlaylistItems);
 
   //Stepper control
   const [currentStep, setCurrentStep] = useState(0);

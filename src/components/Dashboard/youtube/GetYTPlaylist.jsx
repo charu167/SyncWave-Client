@@ -8,7 +8,7 @@ export default function GetYTPlaylist({
 }) {
   async function getYoutubePlaylist(nextPageToken) {
     await axios
-      .get("http://localhost:3000/playlists/youtube", {
+      .get("/api/playlists/youtube", {
         headers: {
           id: playlistID,
           nextPageToken: nextPageToken,
@@ -16,7 +16,7 @@ export default function GetYTPlaylist({
       })
       .then((res) => {
         console.log(res.data)
-        // setCurrPlaylistItems((prev) => [...prev, ...res.data.items]);
+        setCurrPlaylistItems((prev) => [...prev, ...res.data.items]);
         if (res.data.nextPageToken) {
           getYoutubePlaylist(res.data.nextPageToken);
         } else {

@@ -8,7 +8,7 @@ export default function CreateYTPlaylist({
   const [name, setName] = useState(null);
   async function handleClick() {
     await axios
-      .post("http://localhost:3000/playlists/youtube/create", {
+      .post("/api/playlists/youtube/create", {
         title: name,
         access_token: localStorage.getItem("googleAccessToken"),
       })

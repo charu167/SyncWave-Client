@@ -9,7 +9,7 @@ export default function GetSpotifyTrackIDs({
   async function handleClick() {
     for (let i = 0; i < currPlaylistItems.length; i++) {
       await axios
-        .get("http://localhost:3000/playlists/spotify/search", {
+        .get("/api/playlists/spotify/search", {
           params: {
             q: currPlaylistItems[i],
           },
@@ -18,8 +18,8 @@ export default function GetSpotifyTrackIDs({
           },
         })
         .then((res) => {
-          setTrackIDs((prev) => [...prev, res.data]);
           console.log(res.data);
+          setTrackIDs((prev) => [...prev, res.data]);
         })
         .catch((error) => {
           console.log(error);

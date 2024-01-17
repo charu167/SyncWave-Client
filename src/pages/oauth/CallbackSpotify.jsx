@@ -7,8 +7,10 @@ export default function CallbackSpotify() {
   const [code, setCode] = useState(null);
   const queryParams = new URLSearchParams(window.location.search);
 
+  //Exchange spotify auth code for access & refresh tokens
   useEffect(() => {
     function getCode() {
+      // Set the local variable code to whatever auth code we recieve from spotify
       if (queryParams.get("code") !== undefined) {
         setCode(queryParams.get("code"));
       }
@@ -18,13 +20,15 @@ export default function CallbackSpotify() {
   }, [queryParams]);
 
   async function exchangeCode() {
+    //Exchange code API call to backend
     await axios
-      .post("http://localhost:3000/auth/spotify", {
+      .post("/api/auth/spotify", {
         code: code,
       })
       .then(async (res) => {
         localStorage.setItem("spotifyAccessToken", res.data.spotifyAccessToken);
 
+        //Get spotify user details (user id)
         await axios
           .get("https://api.spotify.com/v1/me", {
             headers: {
@@ -44,6 +48,8 @@ export default function CallbackSpotify() {
       });
   }
 
+
+  //
   useEffect(() => {
     setTimeout(() => {
       exchangeCode();

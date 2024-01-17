@@ -5,13 +5,14 @@ export default function AddTracksToYT({ createdPlaylitID, trackIDs }) {
   async function handleClick() {
     for (let i = 0; i < trackIDs.length; i++) {
       await axios
-        .post("http://localhost:3000/playlists/youtube/addTracks", {
+        .post("/api/playlists/youtube/addTracks", {
           playlistid: createdPlaylitID,
           videoid: trackIDs[i],
           access_token: localStorage.getItem("googleAccessToken"),
         })
         .then((res) => {
-          console.log(res);
+          
+          console.log(res.data)
         })
         .catch((error) => {
           console.log(error);

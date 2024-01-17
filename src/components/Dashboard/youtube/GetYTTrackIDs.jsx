@@ -9,12 +9,13 @@ export default function GetYTTrackIDs({
   async function handleClick() {
     for (let i = 0; i < currPlaylistItems.length; i++) {
       await axios
-        .get("http://localhost:3000/playlists/youtube/search", {
+        .get("/api/playlists/youtube/search", {
           params: {
             q: currPlaylistItems[i],
           },
         })
         .then((res) => {
+          console.log(res.data)
           setTrackIDs((prev) => [...prev, res.data]);
         })
         .catch((error) => {

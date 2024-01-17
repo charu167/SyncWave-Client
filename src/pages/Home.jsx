@@ -43,6 +43,7 @@ export default function Home() {
             anyone.
           </span>
         </div>
+        <br />
       </div>
     </section>
   );

@@ -8,13 +8,14 @@ export default function GetSpotifyPlaylist({
 }) {
   async function handleClick() {
     await axios
-      .get("http://localhost:3000/playlists/spotify", {
+      .get("/api/playlists/spotify", {
         headers: {
           id: playlistID,
           access_token: localStorage.getItem("spotifyAccessToken"),
         },
       })
       .then((res) => {
+        console.log(res.data)
         setCurrPlaylistItems((prev) => [...prev, ...res.data]);
       })
       .catch((error) => {

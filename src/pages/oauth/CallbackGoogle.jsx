@@ -19,7 +19,7 @@ export default function CallbackGoogle() {
 
   async function exchangeCode() {
     await axios
-      .post("http://localhost:3000/auth/google", {
+      .post("/api/auth/google", {
         code: code,
       })
       .then((res) => {
