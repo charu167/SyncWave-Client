@@ -1,7 +1,7 @@
 import React from "react";
 
 const googlelink =
-  "https://accounts.google.com/o/oauth2/v2/auth?client_id=922148405888-lg7961squh8cmbn0bimklriu3dl1il5d.apps.googleusercontent.com&redirect_uri=https://sync-wave-client.vercel.app/callbackgoogle&response_type=code&scope=https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.channel-memberships.creator https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile&access_type=offline";
+  "https://accounts.google.com/o/oauth2/v2/auth?client_id=922148405888-lg7961squh8cmbn0bimklriu3dl1il5d.apps.googleusercontent.com&redirect_uri=https://sla-lemon.vercel.app/api/googleAuth&response_type=code&scope=https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.channel-memberships.creator https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile&access_type=offline";
 
 export default function OAuthGoogle() {
   return (

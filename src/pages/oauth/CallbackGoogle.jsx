@@ -7,20 +7,10 @@ export default function CallbackGoogle() {
   const [code, setCode] = useState(null);
   const queryParams = new URLSearchParams(window.location.search);
 
-  useEffect(() => {
-    function getCode() {
-      if (queryParams.get("code") !== undefined) {
-        setCode(queryParams.get("code"));
-      }
-    }
-
-    getCode();
-  }, [queryParams]);
-
   async function exchangeCode() {
     await axios
       .post("/api/auth/google", {
-        code: code,
+        code: localStorage.getItem("code"),
       })
       .then((res) => {
         localStorage.setItem("googleAccessToken", res.data.googleAccessToken);
@@ -35,9 +25,15 @@ export default function CallbackGoogle() {
 
   useEffect(() => {
     setTimeout(() => {
-      exchangeCode();
+      localStorage.setItem("code", queryParams.get("code"));
     }, 500);
-  });
+  }, [queryParams]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      exchangeCode();
+    }, 6000);
+  }, [code]);
 
   return <div></div>;
 }
