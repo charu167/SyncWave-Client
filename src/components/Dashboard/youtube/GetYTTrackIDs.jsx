@@ -9,7 +9,7 @@ export default function GetYTTrackIDs({
   async function handleClick() {
     for (let i = 0; i < currPlaylistItems.length; i++) {
       await axios
-        .get("/api/playlists/youtube/search", {
+        .get("https://syn-wave-server.vercel.app/playlists/youtube/search", {
           params: {
             q: currPlaylistItems[i],
           },

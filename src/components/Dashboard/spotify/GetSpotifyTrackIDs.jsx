@@ -9,7 +9,7 @@ export default function GetSpotifyTrackIDs({
   async function handleClick() {
     for (let i = 0; i < currPlaylistItems.length; i++) {
       await axios
-        .get("/api/playlists/spotify/search", {
+        .get("https://syn-wave-server.vercel.app/playlists/spotify/search", {
           params: {
             q: currPlaylistItems[i],
           },

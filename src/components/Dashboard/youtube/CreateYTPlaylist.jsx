@@ -8,7 +8,7 @@ export default function CreateYTPlaylist({
   const [name, setName] = useState(null);
   async function handleClick() {
     await axios
-      .post("/api/playlists/youtube/create", {
+      .post("https://syn-wave-server.vercel.app/playlists/youtube/create", {
         title: name,
         access_token: localStorage.getItem("googleAccessToken"),
       })

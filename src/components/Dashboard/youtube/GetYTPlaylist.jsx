@@ -8,7 +8,7 @@ export default function GetYTPlaylist({
 }) {
   async function getYoutubePlaylist(nextPageToken) {
     await axios
-      .get("/api/playlists/youtube", {
+      .get("https://syn-wave-server.vercel.app/playlists/youtube", {
         headers: {
           id: playlistID,
           nextPageToken: nextPageToken,

@@ -5,7 +5,7 @@ export default function AddTracksToYT({ createdPlaylitID, trackIDs }) {
   async function handleClick() {
     for (let i = 0; i < trackIDs.length; i++) {
       await axios
-        .post("/api/playlists/youtube/addTracks", {
+        .post("https://syn-wave-server.vercel.app/playlists/youtube/addTracks", {
           playlistid: createdPlaylitID,
           videoid: trackIDs[i],
           access_token: localStorage.getItem("googleAccessToken"),

@@ -4,7 +4,7 @@ import axios from "axios";
 export default function AddTracksToSpotify({ createdPlaylitID, trackIDs }) {
   async function handleClick() {
     await axios
-      .post("/api/playlists/spotify/addTracks", {
+      .post("https://syn-wave-server.vercel.app/playlists/spotify/addTracks", {
         uris: trackIDs,
         playlistID: createdPlaylitID,
         access_token: localStorage.getItem("spotifyAccessToken"),

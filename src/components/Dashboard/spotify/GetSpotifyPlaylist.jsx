@@ -8,7 +8,7 @@ export default function GetSpotifyPlaylist({
 }) {
   async function handleClick() {
     await axios
-      .get("/api/playlists/spotify", {
+      .get("https://syn-wave-server.vercel.app/playlists/spotify", {
         headers: {
           id: playlistID,
           access_token: localStorage.getItem("spotifyAccessToken"),

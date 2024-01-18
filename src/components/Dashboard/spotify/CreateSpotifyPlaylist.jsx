@@ -9,7 +9,7 @@ export default function CreateSpotifyPlaylist({
 
   async function handleClick() {
     await axios
-      .post("/api/playlists/spotify/create", {
+      .post("https://syn-wave-server.vercel.app/playlists/spotify/create", {
         access_token: localStorage.getItem("spotifyAccessToken"),
         name: name,
         spotifyID: localStorage.getItem("spotifyID"),

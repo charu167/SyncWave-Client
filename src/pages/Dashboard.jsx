@@ -48,7 +48,7 @@ export default function Dashboard() {
           .catch(async (error) => {
             //Refresh spotify access token
             await axios
-              .post("/api/auth/refreshSpotify", {
+              .post("https://syn-wave-server.vercel.app/auth/refreshSpotify", {
                 spotifyID: localStorage.getItem("spotifyID"),
               })
               .then((res) => {
@@ -81,7 +81,7 @@ export default function Dashboard() {
           .catch(async (error) => {
             //refresh spotify access token
             await axios
-              .post("/api/auth/refreshYoutube", {
+              .post("https://syn-wave-server.vercel.app/auth/refreshYoutube", {
                 spotifyID: localStorage.getItem("spotifyID"),
               })
               .then((res) => {
