@@ -12,7 +12,7 @@ export default function CallbackSpotify() {
   async function exchangeCode() {
     //Exchange code API call to backend
     await axios
-      .post("/api/auth/spotify", {
+      .post("https://syn-wave-server.vercel.app/auth/spotify", {
         code: code,
       })
       .then(async (res) => {
