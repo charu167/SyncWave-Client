@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 
 const spotifyLink =
-  "https://accounts.spotify.com/authorize?client_id=3a95b7c9fc564f5fa392e6df14e505b6&response_type=code&redirect_uri=https://sla-lemon.vercel.app/api/hello&state=abcdefghijklmnop&scope=user-read-private user-read-email playlist-modify-public playlist-modify-private playlist-read-collaborative&show_dialog=true";
+  "https://accounts.spotify.com/authorize?client_id=3a95b7c9fc564f5fa392e6df14e505b6&response_type=code&redirect_uri=https://sla-lemon.vercel.app/api/spotifyAuth&state=abcdefghijklmnop&scope=user-read-private user-read-email playlist-modify-public playlist-modify-private playlist-read-collaborative&show_dialog=true";
 
 export default function OAuthSpotify() {
   return (
