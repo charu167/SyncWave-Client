@@ -38,15 +38,16 @@ export default function CallbackSpotify() {
       });
   }
 
+  
   useEffect(() => {
     async function auth() {
       setCode(queryParams.get("code"));
       setTimeout(() => {
         exchangeCode();
-      }, 500);
+      }, 1000);
     }
     auth();
-  }, []);
+  }, [queryParams]);
 
   return (
     <div>
