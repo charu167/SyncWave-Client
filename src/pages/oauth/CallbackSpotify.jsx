@@ -39,18 +39,17 @@ export default function CallbackSpotify() {
   }
 
   useEffect(() => {
-    async function auth() {
-      setTimeout(() => {
-        setCode(queryParams.get("code"));
-        console.log("code: ", code);
-      }, 500);
-
-      setTimeout(() => {
-        exchangeCode();
-      }, 1000);
-    }
-    auth();
+    setTimeout(() => {
+      setCode(queryParams.get("code"));
+    }, 500);
   }, [queryParams]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.log("code: ", code);
+      exchangeCode();
+    }, 1000);
+  }, [code]);
 
   return (
     <div>
