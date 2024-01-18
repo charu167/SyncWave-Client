@@ -48,7 +48,7 @@ export default function CallbackSpotify() {
   useEffect(() => {
     setTimeout(() => {
       exchangeCode();
-    }, 1000);
+    }, 6000);
   }, [code]);
 
   return (
