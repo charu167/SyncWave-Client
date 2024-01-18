@@ -7,12 +7,14 @@ module.exports = async (req, res) => {
   
       // After processing the Spotify response, redirect the user to a client-side route
       // and pass along any needed data, such as tokens or error messages, as query parameters.
-      const queryParams = new URLSearchParams({
-        token: 'your_access_token', // Replace with actual data
-        // ... any other data you want to pass to the client
-      }).toString();
+    //   const queryParams = new URLSearchParams({
+    //     token: 'your_access_token', // Replace with actual data
+    //     // ... any other data you want to pass to the client
+    //   }).toString();
+
+
   
-      res.redirect(`/callbackspotify?${queryParams}`);
+      res.redirect(`/`);
     } else {
       // If not a POST request, return a 405 Method Not Allowed error
       res.status(405).end();
