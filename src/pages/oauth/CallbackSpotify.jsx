@@ -38,9 +38,13 @@ export default function CallbackSpotify() {
       });
   }
 
-  setCode(queryParams.get("code"));
   useEffect(() => {
     async function auth() {
+      setTimeout(() => {
+        setCode(queryParams.get("code"));
+        console.log("code: ", code);
+      }, 500);
+
       setTimeout(() => {
         exchangeCode();
       }, 1000);
