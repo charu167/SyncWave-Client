@@ -1,6 +1,7 @@
 import React from "react";
 import { Lock } from "lucide-react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function Home() {
   return (
@@ -43,7 +44,6 @@ export default function Home() {
             anyone.
           </span>
         </div>
-        <br />
       </div>
     </section>
   );
