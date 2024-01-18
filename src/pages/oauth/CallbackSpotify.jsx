@@ -13,9 +13,10 @@ export default function CallbackSpotify() {
     //Exchange code API call to backend
     await axios
       .post("https://syn-wave-server.vercel.app/auth/spotify", {
-        code: code,
+        code: localStorage.getItem("code"),
       })
       .then(async (res) => {
+        console.log("response from first request: ", res.data);
         localStorage.setItem("spotifyAccessToken", res.data.spotifyAccessToken);
 
         //Get spotify user details (user id)
@@ -40,13 +41,12 @@ export default function CallbackSpotify() {
 
   useEffect(() => {
     setTimeout(() => {
-      setCode(queryParams.get("code"));
+      localStorage.setItem("code", queryParams.get("code"));
     }, 500);
   }, [queryParams]);
 
   useEffect(() => {
     setTimeout(() => {
-      console.log("code: ", code);
       exchangeCode();
     }, 1000);
   }, [code]);
