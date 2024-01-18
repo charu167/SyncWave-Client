@@ -9,7 +9,7 @@ export default function CallbackGoogle() {
 
   async function exchangeCode() {
     await axios
-      .post("/api/auth/google", {
+      .post("https://syn-wave-server.vercel.app/auth/google", {
         code: localStorage.getItem("code"),
       })
       .then((res) => {
