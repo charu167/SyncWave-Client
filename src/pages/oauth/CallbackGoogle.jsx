@@ -25,6 +25,7 @@ export default function CallbackGoogle() {
 
   useEffect(() => {
     setTimeout(() => {
+      localStorage.removeItem("code");
       localStorage.setItem("code", queryParams.get("code"));
     }, 500);
   }, [queryParams]);
